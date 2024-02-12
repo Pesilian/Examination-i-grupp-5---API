@@ -2,11 +2,11 @@
 /* konkatinera searchFor till   
 let url = `${baseUrl}?api_key=${apiKey}&method=${method}&text=${text}&page=${currentPage}&format=json&nojsoncallback=1`;    */
 
-let apiKey='ac3ec2c4437de194d14c257d4a6244a9';
-let currentPage = 1; //default
-let numberOfPhotosPerPage =8;
+const apiKey='ac3ec2c4437de194d14c257d4a6244a9';
+const currentPage = 1; //default
+const numberOfPhotosPerPage =8;
 
-let submitBtn = document.getElementById("submit-btn");
+const submitBtn = document.getElementById("submit-btn");
 submitBtn.addEventListener("click", getPhotos);
 
 
@@ -19,7 +19,7 @@ async function getPhotos(){
 }
 
   function clearGallery(){
-    let galleryContainer = document.getElementById("gallery");
+    const galleryContainer = document.getElementById("gallery");
     if (galleryContainer.hasChildNodes()) {
       while (galleryContainer.firstChild) {
         galleryContainer.removeChild(galleryContainer.firstChild);
@@ -34,7 +34,7 @@ async function getPhotos(){
 
 function sendApi(){
   let text =document.getElementById("searchFor").value.trim();    //hämta text när funktionen anropats efter att sök knappen aktiveras, för att säkerställa att det finns ett sökord.
-  /*let text ='katt';*/
+ 
   let url = `https://api.flickr.com/services/rest?api_key=${apiKey}&method=flickr.photos.search&text=${text}&page=${currentPage}&per_page=${numberOfPhotosPerPage}&sort=interestingness-desc&format=json&nojsoncallback=1`; 
   return fetch(url)
   .then(function(response){
@@ -65,7 +65,7 @@ console.log(url);
   imageElement.addEventListener('click', toggleModal);
   })
   }
-
+// För att visa  vald bild förstorad när den klickas. Klick nr 2 stänger modala bilden.
 function toggleModal() {
   // Toggle 'modal' class on the clicked image
   this.classList.toggle('modal');
