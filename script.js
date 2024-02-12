@@ -9,7 +9,6 @@ let numberOfPhotosPerPage =8;
 let submitBtn = document.getElementById("submit-btn");
 submitBtn.addEventListener("click", getPhotos);
 
-/* fetch (url)    ersätt imgData med response.json*/
 
 async function getPhotos(){
   clearGallery();
@@ -58,35 +57,18 @@ console.log(url);
   imageBox.classList.add("image-box");
   let imageElement = document.createElement("img");
   imageElement.src = url;
+  imageElement.className='modal-content';
   /*imageElement.width = 200;*/
   imageElement.height = 200;
   imageBox.appendChild(imageElement);
   galleryContainer.appendChild(imageBox);
+  imageElement.addEventListener('click', toggleModal);
   })
+  }
+
+function toggleModal() {
+  // Toggle 'modal' class on the clicked image
+  this.classList.toggle('modal');
 }
-/*
-//temporära bilder. ska ersättas med svar från anropet
-let imgData = [
-  { image: "https://live.staticflickr.com/7372/12502775644_acfd415fa7_w.jpg" },
-  { image: "https://live.staticflickr.com/7372/12502775644_acfd415fa7_w.jpg" },
-  { image: "https://live.staticflickr.com/7372/12502775644_acfd415fa7_w.jpg" },
-  { image: "https://live.staticflickr.com/7372/12502775644_acfd415fa7_w.jpg" },
-];
 
 
-//populera bilderna till DOM
-function showImages() {
-  console.log(searchFor.value);
-  imgData.forEach((value) => {
-    console.log(value.image);
-    let galleryContainer = document.getElementById("gallery");
-    let imageBox = document.createElement("div");
-    imageBox.classList.add("image-box");
-    let imageElement = document.createElement("img");
-    imageElement.src = value.image;
-    imageElement.width = 200;
-    imageBox.appendChild(imageElement);
-    galleryContainer.appendChild(imageBox);
-  });
-}
-*/
