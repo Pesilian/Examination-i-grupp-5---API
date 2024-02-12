@@ -1,0 +1,112 @@
+:root{
+    --clr--primary: hsl(226, 14%, 25%);
+    --clr-secondary: hsl(191, 52%, 40%);
+    --clr-neutral: hsl(26, 40%, 92%);
+
+    --ff-base: "Fraunces", serif;
+    --ff-secondary: "Montserrat", sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+  
+/* Style for the overall body of the document */
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-neutral)
+}
+  
+/* Style for the main card container */
+.container{
+    width: 1500px;
+    height: 500px;
+    display: flex;
+    border-top: 1px solid var(--clr--primary);
+    border-bottom: 1px solid var(--clr--primary);
+    
+}
+  
+h1{
+    font-family: var(--ff-base);
+    font-size: 2.18rem;
+    color: var(--clr--primary);
+}
+  
+h3{
+    font-family: var(--ff-secondary);
+    font-weight: 100;
+    letter-spacing: 0.313rem;
+    font-size: 0.938rem;
+    color: var(--clr--primary);
+}
+  
+.search-picture{
+    color: var(--clr-secondary);
+    font-size: 1.563rem;
+    padding-right: 20px;
+    font-family: var(--ff-base);
+    margin: 0px 0px 20px 0px;
+}
+  
+.left-section{
+    width: 20%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+.information-section{
+    display: flex;
+}
+
+#search{
+    width: 270px;
+    border-radius: 6px;
+    border: 1px solid var(--clr--primary);
+    height: 35px;
+    font-family: var(--ff-secondary);
+    color: var(--clr--primary);
+}
+
+#gallery img{
+    display: inline-block;
+    margin-top: 100px;
+    width: 370px;
+    height: 300px;
+    margin-right: 5px;
+}
+  
+button{
+    margin-top: 15px;
+    width: 150px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    color: var(--clr-neutral);
+    background-color: var(--clr-secondary);
+    display: flex;
+    justify-content: center;
+}
+  
+button p{
+    margin-top: 13px;
+    font-family: var(--ff-secondary);
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+  
+.attribution{
+    font-size: 0.938rem;
+    color: var(--clr--primary);
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+}
+  
