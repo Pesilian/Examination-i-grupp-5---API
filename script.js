@@ -1,74 +1,62 @@
+let apiKey='ac3ec2c4437de194d14c257d4a6244a9';
+let currentPage = 1; //default
+let numberOfPhotosPerPage =8;
 
-/* konkatinera searchFor till   
-let url = `${baseUrl}?api_key=${apiKey}&method=${method}&text=${text}&page=${currentPage}&format=json&nojsoncallback=1`;    */
+let submitBtn = document.getElementById("submit-btn");
+submitBtn.addEventListener("click", function(){
+let text =document.getElementById("searchFor").value.trim();
+fetchPhotos(text);
+});
 
-const apiKey='ac3ec2c4437de194d14c257d4a6244a9';
-const currentPage = 1; //default
-const numberOfPhotosPerPage =8;
+//ett API anrop
 
-const submitBtn = document.getElementById("submit-btn");
-submitBtn.addEventListener("click", getPhotos);
-
-
-async function getPhotos(){
-  clearGallery();
-  const data = await sendApi();
-  /*showImages();*/
-  showImagesApi(data);
-  clearInput();
-}
-
-  function clearGallery(){
-    const galleryContainer = document.getElementById("gallery");
-    if (galleryContainer.hasChildNodes()) {
-      while (galleryContainer.firstChild) {
-        galleryContainer.removeChild(galleryContainer.firstChild);
-      }
-    }
-  }
-
-  //Rensa sökruta när sökning gjorts.
-  function clearInput(){
-    searchFor.value="";
-  }
-
-function sendApi(){
-  let text =document.getElementById("searchFor").value.trim();    //hämta text när funktionen anropats efter att sök knappen aktiveras, för att säkerställa att det finns ett sökord.
- 
+async function fetchPhotos(text){
   let url = `https://api.flickr.com/services/rest?api_key=${apiKey}&method=flickr.photos.search&text=${text}&page=${currentPage}&per_page=${numberOfPhotosPerPage}&sort=interestingness-desc&format=json&nojsoncallback=1`; 
-  return fetch(url)
-  .then(function(response){
-    return response.json();
-  })
-  .catch (function(error){
-    console.error(error);
-  });
+  
+  try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.stat === "fail") {
+          throw new Error(data.message);
+      }
+
+      const photos = data.photos.photo;
+      displayImages(photos);
+  } catch (error) {
+      console.error('Error fetching photos:', error.message);
+  }
 }
 
-//Från json filen gör url för varje bild. Populera sedan dessa i DOM.
-function showImagesApi(data) {
-  const galleryContainer = document.getElementById("gallery");
-  data.photos.photo.forEach((photo)=>{
+function displayImages(images){ 
+  const galleryElement = document.getElementById("gallery"); 
+  galleryElement.innerHTML = ""; 
+  images.forEach(photo => { 
+      const imageElement = createImageElem(photo);  
+      imageElement.style.display = 'inline-block';
+      galleryElement.appendChild(imageElement);  
+  }); //Funktionen createImageElem tar hand om att skapa HTML-bilder från API-data, medan displayImages renderar och visar dessa bilder på webbsidan genom att manipulera DOM.
+}
 
-    let url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
-console.log(url);
+function createImageElem(photo){ 
+  const imageElem = document.createElement('img'); 
+  const photoUrl = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`; 
 
-  let imageBox = document.createElement("div");
-  imageBox.classList.add("image-box");
-  let imageElement = document.createElement("img");
-  imageElement.src = url;
-  imageElement.className='modal-content';
-  /*imageElement.width = 200;*/
-  imageElement.height = 200;
-  imageBox.appendChild(imageElement);
-  galleryContainer.appendChild(imageBox);
-  imageElement.addEventListener('click', toggleModal);
-  })
-  }
-// För att visa  vald bild förstorad när den klickas. Klick nr 2 stänger modala bilden.
+  imageElem.src = photoUrl; 
+  imageElem.alt = photo.title;
+  imageElem.height = 200; 
+  imageElem.addEventListener('click', toggleModal);
+  return imageElem; 
+}
+
 function toggleModal() {
   // Toggle 'modal' class on the clicked image
   this.classList.toggle('modal');
+}
+function viewImage(){
+  console.log('hej');
+  this.addEventListener('click',closeModal() )
+  this.classList.add('modal');
 }
 
 
