@@ -46,7 +46,7 @@ function createImageElem(photo) {
   imageElem.src = photoUrl;
   imageElem.alt = photo.title;
   imageElem.height = 200;
-  imageElem.addEventListener('click', modal);
+  imageElem.addEventListener('click', toggleModal);
   return imageElem;
 }
 
@@ -55,7 +55,12 @@ function clearInput() {
   searchFor.value = '';
 }
 
-const modal = function () {
+function toggleModal() {
+  // Toggle 'modal' class on the clicked image
   this.classList.toggle('modal');
-  document.body.classList.toggle('modalbackground');
-};
+}
+function viewImage() {
+  console.log('hej');
+  this.addEventListener('click', closeModal());
+  this.classList.add('modal');
+}
