@@ -45,7 +45,6 @@ function createImageElem(photo) {
   imageElem.src = photoUrl;
   imageElem.alt = photo.title;
   imageElem.height = 200;
-  imageElem.setAttribute('id', 'image');
   imageElem.addEventListener('click', modal);
   return imageElem;
 }
