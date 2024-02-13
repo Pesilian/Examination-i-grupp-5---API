@@ -3,7 +3,7 @@ body {
 }
 .main-container {
   padding: 3vw;
-  /* background-color: rgb(250, 251, 231); */
+  background-color: rgb(250, 251, 231);
   width: 80vw;
   margin: auto;
 }
@@ -39,7 +39,6 @@ body {
   width: auto;
   height: 200px;
 }
-
 .modal {
   position: absolute;
   left: 0;

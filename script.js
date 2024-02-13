@@ -1,5 +1,3 @@
-'use strict';
-
 let apiKey = 'ac3ec2c4437de194d14c257d4a6244a9';
 let currentPage = 1; //default
 let numberOfPhotosPerPage = 8;
@@ -8,6 +6,7 @@ let submitBtn = document.getElementById('submit-btn');
 submitBtn.addEventListener('click', function () {
   let text = document.getElementById('searchFor').value.trim();
   fetchPhotos(text);
+  clearInput();
 });
 
 //ett API anrop
@@ -47,9 +46,13 @@ function createImageElem(photo) {
   imageElem.src = photoUrl;
   imageElem.alt = photo.title;
   imageElem.height = 200;
-  imageElem.setAttribute('id', 'image');
   imageElem.addEventListener('click', modal);
   return imageElem;
+}
+
+//Rensa sökruta när sökning gjorts.
+function clearInput() {
+  searchFor.value = '';
 }
 
 const modal = function () {
