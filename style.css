@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main-container {
+  padding: 3vw;
+  background-color: rgb(250, 251, 231);
+  width: 80vw;
+  margin: auto;
+}
+
+.inputfield {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+}
+
+.button {
+  background-color: green;
+  border: none;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.gallery {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 77vw;
+  max-height: 70vh;
+  padding: 20px;
+  background-color: rgb(89, 83, 75);
+  overflow: auto;
+}
+
+.image-box {
+  width: auto;
+  height: 200px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding: 3rem;
+  left: 0;
+  top: 0;
+  width: 90%;
+  height: 90%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+}
