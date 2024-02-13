@@ -6,7 +6,6 @@ let submitBtn = document.getElementById('submit-btn');
 submitBtn.addEventListener('click', function () {
   let text = document.getElementById('searchFor').value.trim();
   fetchPhotos(text);
-  clearInput();
 });
 
 //ett API anrop
@@ -46,21 +45,15 @@ function createImageElem(photo) {
   imageElem.src = photoUrl;
   imageElem.alt = photo.title;
   imageElem.height = 200;
-  imageElem.addEventListener('click', toggleModal);
+  imageElem.addEventListener('click', modal);
   return imageElem;
 }
 
-//Rensa sökruta när sökning gjorts.
+const modal = function () {
+  this.classList.toggle('modal');
+  document.body.classList.toggle('modalbackground');
+};
+
 function clearInput() {
   searchFor.value = '';
-}
-
-function toggleModal() {
-  // Toggle 'modal' class on the clicked image
-  this.classList.toggle('modal');
-}
-function viewImage() {
-  console.log('hej');
-  this.addEventListener('click', closeModal());
-  this.classList.add('modal');
 }
