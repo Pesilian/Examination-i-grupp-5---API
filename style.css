@@ -1,9 +1,58 @@
-.submitbutton {
-  color: white;
-  background-color: black;
-  border-radius: 5px;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
-.bckgr-img {
+.main-container {
+  padding: 3vw;
+  /* background-color: rgb(250, 251, 231); */
+  width: 80vw;
+  margin: auto;
+}
+
+.inputfield {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+}
+
+.button {
+  background-color: green;
+  border: none;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.gallery {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 77vw;
+  max-height: 70vh;
+  padding: 20px;
+  background-color: rgb(89, 83, 75);
+  overflow: auto;
+}
+
+.image-box {
+  width: auto;
+  height: 200px;
+}
+
+.modal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
   height: auto;
-  width: 90%;
+  z-index: 3;
+}
+
+.modalbackground {
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
 }
