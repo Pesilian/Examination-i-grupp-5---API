@@ -6,6 +6,7 @@ let submitBtn = document.getElementById("submit-btn");
 submitBtn.addEventListener("click", function(){
 let text =document.getElementById("searchFor").value.trim();
 fetchPhotos(text);
+clearInput();
 });
 
 //ett API anrop
@@ -47,6 +48,11 @@ function createImageElem(photo){
   imageElem.height = 200; 
   imageElem.addEventListener('click', toggleModal);
   return imageElem; 
+}
+
+ //Rensa sökruta när sökning gjorts.
+ function clearInput(){
+  searchFor.value="";
 }
 
 function toggleModal() {
