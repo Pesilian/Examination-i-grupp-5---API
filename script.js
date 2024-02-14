@@ -50,10 +50,24 @@ function createImageElem(photo) {
   return imageElem;
 }
 
-const modal = function () {
-  this.classList.toggle('modal');
-  document.body.classList.toggle('modalbackground');
-};
+/* presentera klickad bild i större storlek*/
+function modal(){
+  let modalContainer = document.createElement('div');
+  modalContainer.className = 'modalbackground';
+  document.body.appendChild(modalContainer);
+
+  let modal = document.getElementById('myModal');
+  let modalImage = document.getElementById('modalImage');
+  let span = document.getElementsByClassName('close')[0];
+
+  modal.style.display = 'block';
+  modalImage.src = this.src;
+
+  span.onclick = function() {
+    modal.style.display = 'none';
+    document.body.removeChild(modalContainer);
+  }
+}
 
 function clearInput() {
   searchFor.value = '';
