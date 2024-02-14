@@ -14,7 +14,7 @@ body {
 }
 
 .button {
-  background-color: green;
+  background-color: rgb(150, 182, 150);
   border: none;
   border-radius: 10px;
   color: rgb(0, 0, 0);
@@ -34,10 +34,6 @@ body {
   overflow: auto;
 }
 
-.image-box {
-  width: auto;
-  height: 200px;
-}
 .modal {
   position: absolute;
   left: 0;
