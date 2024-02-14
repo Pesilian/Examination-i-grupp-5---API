@@ -6,6 +6,7 @@ let submitBtn = document.getElementById('submit-btn');
 submitBtn.addEventListener('click', function () {
   let text = document.getElementById('searchFor').value.trim();
   fetchPhotos(text);
+  clearInput();
 });
 
 //ett API anrop
