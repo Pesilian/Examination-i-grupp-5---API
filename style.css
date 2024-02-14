@@ -1,37 +1,89 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f5dc;
 }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
 .main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 3vw;
-  width: 80vw;
+  width: 92vw;
   margin: auto;
 }
 
 .inputfield {
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 10px;
   padding: 1rem 2rem;
 }
 
 .button {
-  background-color: rgb(150, 182, 150);
+
+  background-color: #333333;
+
   border: none;
   border-radius: 10px;
-  color: rgb(0, 0, 0);
+  color: #f1f1f1;
   padding: 1rem 2rem;
   text-align: center;
+  margin-top: 20px;
 }
 
 .gallery {
   margin-top: 20px;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  max-width: 77vw;
+  max-width: 91vw;
   max-height: 70vh;
-  padding: 20px;
-  background-color: rgb(89, 83, 75);
+  background-color: #2d2d2d;
   overflow: auto;
+}
+img {
+  width: 300px;
+  height: 250px;
+  transition: 0.3s;
+  padding: 13px 13px;
+}
+
+img:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding: 3rem;
+  left: 0;
+  top: 0;
+  width: 90%;
+  height: 90%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
 }
 
 .modal {
